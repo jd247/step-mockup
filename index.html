@@ -63,6 +63,7 @@
         (function() {
             let maxSlides = $('.mockup-image img').length
             let counter = 2
+            let intervalStatus = false
             let autoPlay = function() {
                 $('.mockup-image img:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
                 $('.navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
@@ -73,7 +74,7 @@
             }
 
             // SET INTERVAL
-            let loopThrough = setInterval(autoPlay, 2500)
+            let loopThrough = setInterval(autoPlay, 3000)
             
             // CHECK FOR CLICK 
             $('.navigator .step-single button').on('click', function() {
@@ -81,7 +82,11 @@
                 counter = $(this).parent().data('index')
                 $('.mockup-image img:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
                 $('.navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
-                setInterval(autoPlay, 2500)
+
+                if(intervalStatus == false) {
+                    setInterval(autoPlay, 3000)
+                    intervalStatus = true
+                }
             });
         })();
     </script>
