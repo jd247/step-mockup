@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header {
+    position: fixed;
+    height: 70px;
+    background: lightgray;
+    width: 100%;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    border: 1px dashed lightgray;
+    width: 1170px;
+    margin: 0 auto;
+}
+
+
+.banner {
+    padding-top: 70px;
+    min-height: 100vh;
+    background: lightblue;
+}
+
+.banner .container {
+    height: 100%;
+}
+
+.banner .container .banner-title-section h1 {
+    color: #333;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 100;
+}
+
+.banner .container .banner-mockup-container {
+    margin-top: 50px;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+
+.banner .container .banner-mockup-container .mockup-main {
+    flex: 1;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+}
+
+.banner .container .banner-mockup-container .mockup-main .device-wrapper {
+    width: 240px;
+
+}
+
+.banner .container .banner-mockup-container .navigator {
+    flex: 1;
+}
+
+.screen {
+    position: relative;
+}
+
+.screen img {
+    position: absolute;
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.navigator .step-single {
+    margin-bottom: 30px;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.navigator .step-single button {
+    background: none;
+    font-size: 20px;
+    color: black;
+    border:none;
+    cursor: pointer;
+    outline-style: none;
+}
+
+.navigator .step-single.active {
+    background: lightgray;
+}
+
+.navigator .step-single.active button {
+    color: green;
+}
+
+.screen img.active {
+    opacity: 1;
+}

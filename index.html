@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phone Mockup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mockups/dist/device-mockups.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container"></div>
+    </header>
+    <section class="banner">
+        <div class="container">
+            <div class="banner-title-section">
+                <h1>Get your chatbot up & running in just 7 mins.</h1>
+            </div>
+
+            <div class="banner-mockup-container">
+                <div class="mockup-main">
+                    <div class="device-wrapper">
+                        <div class="device" data-device="iPhone7" data-orientation="portrait" data-color="black">
+                            <div class="screen mockup-image">
+                                <img data-index="1" src="img/1.jpg" alt="" class="active">
+                                <img data-index="2" src="img/2.jpg" alt="">
+                                <img data-index="3" src="img/3.jpg" alt="">
+                                <img data-index="4" src="img/4.jpg" alt="">
+                            </div>
+                            <div class="button">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigator">
+                    <div class="step-single active" data-index="1">
+                        <button>Click the link</button>
+                        <p>whether on Twitter, Instagram or Facebook, click the rite.ly link to get to the store</p>
+                    </div>
+                    <div class="step-single" data-index="2">
+                        <button>Browse the Store</button>
+                        <p>See what the seller has to offer or check out our Care Packages</p>
+                    </div>
+                    <div class="step-single" data-index="3">
+                        <button >Pay securely online</button>
+                        <p>Use bank transfer, bank card or USSD. Get refund in 24 hours if your order is cancelled or fails to get to you</p>
+                    </div>
+                    <div class="step-single" data-index="4">
+                        <button>Ratings and Reviews</button>
+                        <p>Rate your experience with vendors to help build a strong trusted community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        (function() {
+            let maxSlides = $('.mockup-image img').length
+            let counter = 2
+            let autoPlay = function() {
+                $('.mockup-image img:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
+                $('.navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
+                counter++
+                if(counter > maxSlides) {
+                    counter = 1
+                }
+            }
+
+            // SET INTERVAL
+            let loopThrough = setInterval(autoPlay, 2500)
+            
+            // CHECK FOR CLICK 
+            $('.navigator .step-single button').on('click', function() {
+                clearInterval(loopThrough)
+                counter = $(this).parent().data('index')
+                $('.mockup-image img:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
+                $('.navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
+                setInterval(autoPlay, 2500)
+            });
+        })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // $(document).ready(function() {
+        //     let counter = 2;
+        //     function autoPlay() {
+        //         $('.mockup-image img:nth-child('+counter+')').addClass('active').siblings().removeClass('active');
+        //         $('.navigator .step-single:nth-child('+counter+')').addClass('active').siblings().removeClass('active');
+        //         counter++;
+        //         if(counter > 4)  {
+        //             counter = 1;
+        //         } 
+        //     }
+
+        //     $('.navigator .step-single button').on('click', function() {
+        //         let clickBtnCounter = $(this).parent().data('index');
+        //         $('.mockup-image img:nth-child('+clickBtnCounter+')').addClass('active').siblings().removeClass('active');
+        //         $(this).parent().addClass('active').siblings().removeClass('active');
+        //     });
+
+        //     setInterval(autoPlay, 4500);
+        // });
+    </script>
+
+    
+</body>
+
+</html>
