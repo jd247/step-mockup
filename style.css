@@ -119,3 +119,7 @@ img {
 .screen img.active {
     opacity: 1;
 }
+
+.mobile-navigator {
+    display: none;
+}
