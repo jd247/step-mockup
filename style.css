@@ -94,7 +94,6 @@ img {
 
 .navigator .step-single {
     margin-bottom: 30px;
-    border: 1px solid gray;
     padding: 10px;
     border-radius: 4px;
 }
@@ -107,13 +106,28 @@ img {
     cursor: pointer;
     outline-style: none;
 }
-
+/* 
 .navigator .step-single.active {
     background: lightgray;
-}
+} */
 
 .navigator .step-single.active button {
     color: green;
+}
+.navigator .step-single button span {
+    border: 1px solid green;
+    padding: 5px;
+    font-size: 17px;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 100%;
+    transition: all 0.5s;
+}
+.navigator .step-single.active button span {
+    background: green;
+    color: white;
+    font-weight: bold;
 }
 
 .screen img.active {
@@ -121,5 +135,98 @@ img {
 }
 
 .mobile-navigator {
+    margin-top: 20px;
     display: none;
 }
+
+.mobile-navigator ul {
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+}
+
+.mobile-navigator ul li {
+    list-style: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.mobile-navigator ul li.active a {
+    background: green;
+    color: white;
+    font-weight: bold;
+}
+
+
+.mobile-navigator .digits {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.mobile-navigator .digits li a {
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid green;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
+
+.mobile-navigator .mobile-navigator-text {
+    position: relative;
+}
+
+.mobile-navigator .mobile-navigator-text .step-single {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-navigator .mobile-navigator-text .step-single.active {
+    opacity: 1;
+}
+
+@media(max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 768px) {
+    .banner-mockup-container .navigator {
+        display: none;
+    }
+
+    .mobile-navigator {
+        display: block;
+    }
+}
+

@@ -20,34 +20,36 @@
                 <h1>Get your chatbot up & running in just 7 mins.</h1>
             </div>
 
-            <div class="banner-mockup-container">
-                <div class="mobile-navigator">
-                    <ul class="digits">
-                        <li><a href="" data-index="1">1</a></li>
-                        <li><a href="" data-index="2">2</a></li>
-                        <li><a href="" data-index="3">3</a></li>
-                        <li><a href="" data-index="4">4</a></li>
-                    </ul>
+            <div class="mobile-navigator">
+                <ul class="digits">
+                    <li class="active"><a href="" data-index="1">1</a></li>
+                    <li><a href="" data-index="2">2</a></li>
+                    <li><a href="" data-index="3">3</a></li>
+                    <li><a href="" data-index="4">4</a></li>
+                </ul>
 
-                    <div class="mobile-navigator-text">
-                        <div class="step-single active" data-index="1">
-                        <button>Click the link</button>
+                <div class="mobile-navigator-text">
+                    <div class="step-single active" data-index="1">
+                        <span>Click the link</span>
                         <p>whether on Twitter, Instagram or Facebook, click the rite.ly link to get to the store</p>
                     </div>
                     <div class="step-single" data-index="2">
-                        <button>Browse the Store</button>
+                        <span>Browse the Store</span>
                         <p>See what the seller has to offer or check out our Care Packages</p>
                     </div>
                     <div class="step-single" data-index="3">
-                        <button >Pay securely online</button>
-                        <p>Use bank transfer, bank card or USSD. Get refund in 24 hours if your order is cancelled or fails to get to you</p>
+                        <span>Pay securely online</span>
+                        <p>Use bank transfer, bank card or USSD. Get refund in 24 hours if your order is cancelled
+                            or fails to get to you</p>
                     </div>
                     <div class="step-single" data-index="4">
-                        <button>Ratings and Reviews</button>
+                        <span>Ratings and Reviews</span>
                         <p>Rate your experience with vendors to help build a strong trusted community</p>
                     </div>
-                    </div>
                 </div>
+            </div>
+
+            <div class="banner-mockup-container">
                 <div class="mockup-main">
                     <div class="device-wrapper">
                         <div class="device" data-device="iPhone7" data-orientation="portrait" data-color="black">
@@ -58,26 +60,27 @@
                                 <img data-index="4" src="img/4.jpg" alt="">
                             </div>
                             <div class="button">
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="navigator">
                     <div class="step-single active" data-index="1">
-                        <button>Click the link</button>
+                        <button><span>1</span> Click the link</button>
                         <p>whether on Twitter, Instagram or Facebook, click the rite.ly link to get to the store</p>
                     </div>
                     <div class="step-single" data-index="2">
-                        <button>Browse the Store</button>
+                        <button><span>2</span> Browse the Store</button>
                         <p>See what the seller has to offer or check out our Care Packages</p>
                     </div>
                     <div class="step-single" data-index="3">
-                        <button >Pay securely online</button>
-                        <p>Use bank transfer, bank card or USSD. Get refund in 24 hours if your order is cancelled or fails to get to you</p>
+                        <button><span>3</span> Pay securely online</button>
+                        <p>Use bank transfer, bank card or USSD. Get refund in 24 hours if your order is cancelled or
+                            fails to get to you</p>
                     </div>
                     <div class="step-single" data-index="4">
-                        <button>Ratings and Reviews</button>
+                        <button><span>4</span> Ratings and Reviews</button>
                         <p>Rate your experience with vendors to help build a strong trusted community</p>
                     </div>
                 </div>
@@ -87,69 +90,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
-        (function() {
+        (function () {
             let maxSlides = $('.mockup-image img').length
             let counter = 2
-            let autoPlay = function() {
-                $('.mockup-image img:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
-                $('.navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
+            let autoPlay = function () {
+                $('.mockup-image img:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                    'active')
+                $('.navigator .step-single:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                    'active')
+                $('.mobile-navigator .digits li:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                    'active')
+
+                $('.mobile-navigator-text .step-single:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                'active')
                 counter++
-                if(counter > maxSlides) {
+                if (counter > maxSlides) {
                     counter = 1
                 }
             }
 
             // SET INTERVAL
             let loopThrough = setInterval(autoPlay, 3000)
-            
+
             // CHECK FOR CLICK 
-            $('.navigator .step-single button').on('click', function() {
+            $('.navigator .step-single button').on('click', function () {
                 clearInterval(loopThrough)
                 counter = $(this).parent().data('index')
-                $('.mockup-image img:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
-                $('.navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
-                setInterval(autoPlay, 3000)
+                $('.mockup-image img:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                    'active')
+                $('.navigator .step-single:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                    'active')
+                loopThrough = setInterval(autoPlay, 3000)
+                intervalStatus = true
+            });
+
+
+            $('.mobile-navigator .digits li a').on('click', function (e) {
+                e.preventDefault();
+                clearInterval(loopThrough)
+                counter = $(this).data('index')
+                $('.mockup-image img:nth-child(' + counter + ')').addClass('active').siblings().removeClass(
+                    'active')
+
+                $(this).parent().addClass('active').siblings().removeClass('active')
+
+                $('.mobile-navigator .step-single:nth-child('+ counter +')').addClass('active').siblings().removeClass('active')
+                loopThrough = setInterval(autoPlay, 3000)
                 intervalStatus = true
             });
         })();
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        // $(document).ready(function() {
-        //     let counter = 2;
-        //     function autoPlay() {
-        //         $('.mockup-image img:nth-child('+counter+')').addClass('active').siblings().removeClass('active');
-        //         $('.navigator .step-single:nth-child('+counter+')').addClass('active').siblings().removeClass('active');
-        //         counter++;
-        //         if(counter > 4)  {
-        //             counter = 1;
-        //         } 
-        //     }
-
-        //     $('.navigator .step-single button').on('click', function() {
-        //         let clickBtnCounter = $(this).parent().data('index');
-        //         $('.mockup-image img:nth-child('+clickBtnCounter+')').addClass('active').siblings().removeClass('active');
-        //         $(this).parent().addClass('active').siblings().removeClass('active');
-        //     });
-
-        //     setInterval(autoPlay, 4500);
-        // });
-    </script>
-
-    
 </body>
 
 </html>
